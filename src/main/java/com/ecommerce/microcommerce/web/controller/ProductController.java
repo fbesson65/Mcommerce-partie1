@@ -16,6 +16,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -46,7 +48,39 @@ public class ProductController {
 
         return produitsFiltres;
     }
+    
+  /*  @RequestMapping(value = "/AdminProduits", method = RequestMethod.GET)
 
+    public MappingJacksonValue calculerMargeProduit() {
+    	
+    	 Iterable<Product> produits = productDao.findAll();
+    	 Iterator<Product> it = produits.iterator();
+    	 if (it !=null) {
+    		 while (it.hasNext())  {
+    			 Product p = it.next();
+    			 p.setMarge(p.getPrix()-p.getPrixAchat());
+    			 
+    		 }
+    	 }
+    	 return listeProduits();
+    }
+*/
+    @RequestMapping(value = "/AdminProduits", method = RequestMethod.GET)
+
+    public MappingJacksonValue calculerMargeProduit() {
+    	
+    	 Iterable<Product> produits = productDao.findAll();
+    	 List<String> lmarge = new ArrayList<String>();
+    	 Iterator<Product> it = produits.iterator();
+    	 if (it !=null) {
+    		 while (it.hasNext())  {
+    			 Product p = it.next();
+    			 String m = p.toString()+":"+ (p.getPrix()-p.getPrixAchat());
+    			 lmarge.add(m);
+    		 }
+    	 }
+    	 return  new MappingJacksonValue(lmarge);
+    }
 
     //Récupérer un produit par son Id
     @ApiOperation(value = "Récupère un produit grâce à son ID à condition que celui-ci soit en stock!")
