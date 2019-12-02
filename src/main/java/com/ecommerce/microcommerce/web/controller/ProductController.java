@@ -2,6 +2,7 @@ package com.ecommerce.microcommerce.web.controller;
 
 import com.ecommerce.microcommerce.dao.ProductDao;
 import com.ecommerce.microcommerce.model.Product;
+import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
 import com.ecommerce.microcommerce.web.exceptions.ProduitIntrouvableException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
@@ -61,7 +62,6 @@ public class ProductController {
     	  Iterable<Product> produits = productDao.findByOrderByNomAsc();
           return doFiltreProduct(produits);
     }
-
     
     @RequestMapping(value = "/AdminProduits", method = RequestMethod.GET)
 
@@ -97,10 +97,9 @@ public class ProductController {
 
     //ajouter un produit
     @PostMapping(value = "/Produits")
-
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
 
-    	if (product.getPrix()==0) throw new ProduitGratuitException("Le produit avec " + product.getNom() + " ne peut être vendu 0 euros");
+    	if (product.getPrix()==0) throw new ProduitGratuitException("Le produit  [" + product.getNom() + "] ne peut être vendu 0 euros");
     	
         Product productAdded =  productDao.save(product);
 

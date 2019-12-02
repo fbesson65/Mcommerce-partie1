@@ -1,0 +1,156 @@
+{
+	"id": "f7f287e4-08d3-40a3-a512-38bd76f0560c",
+	"name": "Test",
+	"allTests": [],
+	"timestamp": "2019-12-02T10:18:52.269Z",
+	"collection_id": "7f7a7a93-c101-4d78-b5c1-72a0e714abac",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "7f7a7a93-c101-4d78-b5c1-72a0e714abac",
+		"name": "Test",
+		"order": [
+			"21d7f75d-99f4-49b8-b1e3-490e448cf526",
+			"781c4db2-e245-45b8-bec7-b73715980103",
+			"5c38d200-8ee3-4cac-acd6-56b67904b6d4"
+		],
+		"folders_order": [],
+		"isFavorite": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"name": "Calcul de la marge des produits",
+			"id": "21d7f75d-99f4-49b8-b1e3-490e448cf526",
+			"url": "http://localhost:9090/AdminProduits",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "Tri des produits par ordre alphabétique croissant",
+			"id": "781c4db2-e245-45b8-bec7-b73715980103",
+			"url": "http://localhost:9090/trierProduitsParOrdreAlphabetique",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "Gestion d'une exception si prix egal à 0",
+			"id": "5c38d200-8ee3-4cac-acd6-56b67904b6d4",
+			"url": "http://localhost:9090/ajouterProduit",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 22,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Calcul de la marge des produits",
+			"id": "21d7f75d-99f4-49b8-b1e3-490e448cf526",
+			"url": "http://localhost:9090/AdminProduits",
+			"time": "2019-12-02T10:18:52.269Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Tri des produits par ordre alphabétique croissant",
+			"id": "781c4db2-e245-45b8-bec7-b73715980103",
+			"url": "http://localhost:9090/trierProduitsParOrdreAlphabetique",
+			"time": "2019-12-02T10:18:52.269Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Gestion d'une exception si prix egal à 0",
+			"id": "5c38d200-8ee3-4cac-acd6-56b67904b6d4",
+			"url": "http://localhost:9090/ajouterProduit",
+			"time": "2019-12-02T10:18:52.269Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}
