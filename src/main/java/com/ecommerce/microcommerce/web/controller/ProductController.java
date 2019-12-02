@@ -61,24 +61,8 @@ public class ProductController {
     	  Iterable<Product> produits = productDao.findByOrderByNomAsc();
           return doFiltreProduct(produits);
     }
-    
-    
-  /*  @RequestMapping(value = "/AdminProduits", method = RequestMethod.GET)
 
-    public MappingJacksonValue calculerMargeProduit() {
-    	
-    	 Iterable<Product> produits = productDao.findAll();
-    	 Iterator<Product> it = produits.iterator();
-    	 if (it !=null) {
-    		 while (it.hasNext())  {
-    			 Product p = it.next();
-    			 p.setMarge(p.getPrix()-p.getPrixAchat());
-    			 
-    		 }
-    	 }
-    	 return listeProduits();
-    }
-*/
+    
     @RequestMapping(value = "/AdminProduits", method = RequestMethod.GET)
 
     public MappingJacksonValue calculerMargeProduit() {
@@ -116,6 +100,8 @@ public class ProductController {
 
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
 
+    	if (product.getPrix()==0) throw new ProduitGratuitException("Le produit avec " + product.getNom() + " ne peut être vendu 0 euros");
+    	
         Product productAdded =  productDao.save(product);
 
         if (productAdded == null)
